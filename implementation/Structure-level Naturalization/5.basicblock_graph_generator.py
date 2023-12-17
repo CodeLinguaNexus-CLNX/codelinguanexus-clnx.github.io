@@ -1,4 +1,3 @@
-
 import pickle
 import re
 from cpgqls_client import CPGQLSClient, import_code_query
@@ -49,7 +48,6 @@ class Graph:
     def get_connections(self, node):
         return self.graph.get(node, []) 
 
-#执行Joern命令的函数（交互式）
 def extract_nodes(original_string):
     nodes = []
     current_node = None
@@ -78,7 +76,6 @@ def parse_node_content(node_type, content):
     column_number_match = re.search(r'lineNumber = (.*?)(,|$)', content)
     ControlStructureType_match = re.search(r'controlStructureType = "(.*?)",', content)
 
-    # 构建字典
     node_dict = {
         'Node type': node_type,
         'ID': id_match.group(1) if id_match else None,
