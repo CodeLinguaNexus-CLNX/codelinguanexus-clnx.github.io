@@ -188,7 +188,7 @@ def handle_timeout(joern_process):
     return subprocess.Popen(['joern', '--server'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)  # Hide subprocess output
 
 def main():
-    clnx_train_path = "You path"
+    clnx_train_path = "Your path"
     count = 0 
     count_error = 0
     server_endpoint = "localhost:8080"  # Joern server address
@@ -275,7 +275,7 @@ def main():
         result = subprocess.check_output(["lsof", "-i", ":8080"])
         lines = result.decode('utf-8').splitlines()
         for line in lines:
-            if "qzq" in line:
+            if "USER_NAME" in line: # Replace to your USER_NAME in the machine
                 pid = int(line.split()[1])
                 os.kill(pid, signal.SIGKILL)
     except Exception as e:
